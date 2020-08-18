@@ -2,15 +2,11 @@ const router = require("express").Router();
 
 const Users = require("./users-model");
 const protected = require("../middleware/protected");
+const checkDepartment = require("../middleware/checkDepartment");
 
-router.get("/", protected, (req, res) => {
-  Users.find()
-    .then((users) => {
-      res.status(200).json({ data: users });
-    })
-    .catch((error) => {
-      res.status(500).json({ error: error.message });
-    });
+router.get("/", protected, checkDepartment, (req, res) => {
+  const users = req.users;
+  res.status(200).json({ data: users });
 });
 
 module.exports = router;

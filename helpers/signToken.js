@@ -1,4 +1,4 @@
-const constants = require("../config/constants");
+const constants = require("./constants");
 const jwt = require("jsonwebtoken");
 
 module.exports = (user) => {

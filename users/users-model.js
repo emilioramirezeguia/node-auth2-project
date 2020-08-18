@@ -7,6 +7,18 @@ module.exports = {
   findById,
 };
 
+// function add(user) {
+//   db("users")
+//     .insert(user, "id")
+//     .then(([id]) => {
+//       console.log("ID", id);
+//       return findById(id);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
+
 async function add(user) {
   try {
     const [id] = await db("users").insert(user, "id");
